@@ -2,7 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 
-		<TargetFrameworks>net10.0;net10.0-maccatalyst;net10.0-ios;net10.0-android</TargetFrameworks>
+		<!-- Fork orienteme: sem maccatalyst (os apps nao usam e a maquina de build nao tem a carga de trabalho). -->
+		<TargetFrameworks>net10.0;net10.0-ios;net10.0-android</TargetFrameworks>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
 
 		<!-- iOS, Android, MacCatalyst -->
