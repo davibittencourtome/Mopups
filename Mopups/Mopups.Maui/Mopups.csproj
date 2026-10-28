@@ -2,8 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 
-		<TargetFrameworks>net8.0;net8.0-maccatalyst;net8.0-ios;net8.0-android34.0</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net10.0;net10.0-maccatalyst;net10.0-ios;net10.0-android</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0</TargetFrameworks>
 
 		<!-- iOS, Android, MacCatalyst -->
 		<UseMaui>true</UseMaui>
@@ -27,9 +27,10 @@
 		<Authors>Tyson Hooker,Maksym Koshovyi,Aswin P G, Kirill Lyubimov, Martijn Van Dijk, Shane Neuville</Authors>
 		<Company>$(CompanyName)</Company>
 		<PackageTags>Mopups;Popups;Maui;rg;Xamarin;ios;android;Windows;MacOS;Mopups;Dialogs;macos;windows</PackageTags>
-		<Version>1.3.3</Version>
+		<Version>1.3.5-orienteme.1</Version>
 		<Title>Mopups (Maui Popups)</Title>
-		<PackageReleaseNotes>Added in several fixes from the community (THANKYOU!)</PackageReleaseNotes>
+		<PackageReleaseNotes>Fork da 1.3.4 (commit f2459e0) para net10, com a correcao do PR #194: RemoveAsync no iOS nao depende mais de KeyWindow (NRE que deixava o popup preso na pilha).</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/davibittencourtome/Mopups</RepositoryUrl>
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<PublishAot>True</PublishAot>
@@ -99,5 +100,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="AsyncAwaitBestPractices" Version="6.0.4" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.20" />
+		<PackageReference Include="Microsoft.Maui.Essentials" Version="10.0.20" />
 	</ItemGroup>
 </Project>
